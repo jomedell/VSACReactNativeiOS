@@ -1,25 +1,16 @@
-#!/bin/sh
-
-#  appcenter-post-clone.sh
-#  VSAC
-#
-#  Created by Jorge Medellin on 4/23/18.
-#  Copyright © 2018 Microsoft. All rights reserved.
-
 #!/usr/bin/env bash
-#
-# For Xamarin, run all NUnit test projects that have "Test" in the name.
-# The script will build, run and display the results in the build logs.
 
-
-set -e
-
-echo "******************************************************"
-echo "Post Clone Script"
-echo "******************************************************"
+# Install the proper node version
 
 
 
-echo "*******************************"
-echo "Post Clone Script Complete"
-echo "*******************************"
+
+set -ex
+brew uninstall node@6
+NODE_VERSION="11.3.0"
+curl "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}.pkg" > "$HOME/Downloads/node-installer.pkg"
+sudo installer -store -pkg "$HOME/Downloads/node-installer.pkg" -target "/"
+
+
+
+
